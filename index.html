@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FixItDesk — Fast, Friendly Remote IT Support</title>
+  <meta name="description" content="FixItDesk provides fast, friendly remote IT help desk support for home users and small businesses. Malware cleanup, tune‑ups, email & cloud setup, backups, and more." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: #121a33;
+      --muted: #94a3b8;
+      --text: #e2e8f0;
+      --brand: #22c55e; /* green */
+      --brand-2: #38bdf8; /* cyan */
+      --ring: rgba(56,189,248,.5);
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; background: radial-gradient(1200px 600px at 80% -10%, rgba(56,189,248,.12), transparent 60%), radial-gradient(900px 500px at 10% 10%, rgba(34,197,94,.10), transparent 60%), var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: var(--brand-2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 24px; }
+    .btn { display: inline-block; padding: 12px 18px; border-radius: 12px; background: linear-gradient(90deg, var(--brand), var(--brand-2)); color: #0b1020; font-weight: 700; box-shadow: 0 10px 30px rgba(56,189,248,.25); transition: transform .15s ease, box-shadow .15s ease; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(56,189,248,.35); text-decoration: none; }
+    .btn.outline { background: transparent; color: var(--text); border: 1px solid rgba(148,163,184,.35); box-shadow: none; }
+    header { position: sticky; top: 0; backdrop-filter: blur(8px); background: rgba(11,16,32,.6); border-bottom: 1px solid rgba(148,163,184,.1); z-index: 50; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: .2px; }
+    .logo { width: 36px; height: 36px; border-radius: 12px; background: linear-gradient(135deg, var(--brand-2), var(--brand)); display: grid; place-items: center; color: #00111a; font-weight: 900; }
+    .navlinks a { margin-left: 18px; color: var(--text); opacity: .9; }
+    .hero { display: grid; gap: 22px; padding: 72px 0 32px; }
+    .hero h1 { font-size: clamp(32px, 5vw, 54px); line-height: 1.1; margin: 0; }
+    .hero p { font-size: clamp(16px, 2.2vw, 20px); color: var(--muted); margin: 0; }
+    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 10px; }
+    .grid { display: grid; gap: 18px; }
+    .cards { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .card { background: linear-gradient(150deg, rgba(56,189,248,.06), transparent 30%), var(--card); border: 1px solid rgba(148,163,184,.15); padding: 18px; border-radius: 16px; }
+    .card h3 { margin: 6px 0 8px; font-size: 18px; }
+    .pill { font: 700 12px/1 Inter, system-ui; color: #061018; background: linear-gradient(90deg, var(--brand), var(--brand-2)); padding: 6px 10px; border-radius: 999px; display: inline-block; }
+    .section { padding: 48px 0; }
+    .section h2 { font-size: clamp(24px, 3vw, 32px); margin: 0 0 8px; }
+    .muted { color: var(--muted); }
+    .list { margin: 0; padding-left: 18px; }
+    .price { font-size: 36px; font-weight: 800; }
+    .foot { font-size: 13px; color: var(--muted); }
+    footer { border-top: 1px solid rgba(148,163,184,.15); padding: 28px 0 48px; margin-top: 24px; }
+    /* Simple icons */
+    .ic { width: 22px; height: 22px; display: inline-block; vertical-align: -4px; margin-right: 8px; }
+    .stack { display: grid; gap: 10px; }
+    @media (min-width: 900px){
+      .hero { grid-template-columns: 1.2fr 1fr; align-items: center; }
+    }
+  </style>
+  <script>
+    // Smooth scroll for internal links
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('a[href^="#"]');
+      if(!a) return;
+      const el = document.querySelector(a.getAttribute('href'));
+      if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+    });
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "FixItDesk",
+    "url": "https://fixitdesk.tech",
+    "logo": "https://fixitdesk.tech/favicon.png",
+    "description": "Fast, friendly remote IT help desk for home users and small businesses.",
+    "areaServed": "Remote",
+    "sameAs": [],
+    "serviceType": ["Remote IT Support","Malware Cleanup","PC Tune-up","Email & Cloud Setup","Backup & Recovery"],
+    "telephone": "",
+    "email": "support@fixitdesk.tech"
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand"><div class="logo">F</div> FixItDesk</div>
+        <div class="navlinks">
+          <a href="#services">Services</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Contact</a>
+          <a class="btn" href="#book">Book Support</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="pill">Fast • Friendly • Remote</span>
+        <h1>Get Unstuck, Fast — Your IT Fixed First</h1>
+        <p>Remote help desk for home users and small businesses. We fix slow PCs, malware issues, emails, printers, Wi‑Fi, backups, and more — usually the same day.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#book">Book a Remote Session</a>
+          <a class="btn outline" href="#contact">Talk to a Human</a>
+        </div>
+        <p class="foot" style="margin-top:10px;">No call‑out fees • Secure, encrypted remote access • Clear upfront pricing</p>
+      </div>
+      <div class="card stack">
+        <div>
+          <strong>Typical Fixes</strong>
+          <ul class="list">
+            <li>PC tune‑ups & startup cleanup</li>
+            <li>Malware & adware removal</li>
+            <li>Email & cloud setup (Microsoft 365 / Google Workspace)</li>
+            <li>Printer & Wi‑Fi troubleshooting</li>
+            <li>Backup & recovery (OneDrive, Google Drive)</li>
+          </ul>
+        </div>
+        <div>
+          <strong>Tools We Use</strong>
+          <p class="muted">AnyDesk • Zoho Assist • Microsoft 365 • Google Workspace</p>
+        </div>
+        <div>
+          <strong>Hours</strong>
+          <p class="muted">Mon–Sat • 9:00–19:00 (by appointment)</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <h2>Services</h2>
+      <p class="muted">Simple, transparent help — no jargon.</p>
+      <div class="grid cards">
+        <div class="card"><h3>Remote Troubleshooting</h3><p>Fast diagnosis and fixes for slow PCs, crashes, updates, drivers, and more.</p></div>
+        <div class="card"><h3>Malware Cleanup</h3><p>Thorough removal of viruses, spyware, and pop‑ups — plus hardening advice.</p></div>
+        <div class="card"><h3>Email & Cloud Setup</h3><p>Microsoft 365 or Google Workspace setup, migration, and syncing on all devices.</p></div>
+        <div class="card"><h3>Network & Wi‑Fi</h3><p>Printer issues, router optimisation, and home‑office setup.</p></div>
+        <div class="card"><h3>Backups & Recovery</h3><p>Set up reliable cloud backups and recover lost files where possible.</p></div>
+        <div class="card"><h3>Small Business Care</h3><p>Proactive updates, patching, and basic monitoring to keep things running.</p></div>
+      </div>
+    </section>
+
+    <section id="pricing" class="section">
+      <h2>Pricing</h2>
+      <p class="muted">Clear, upfront pricing — no surprises.</p>
+      <div class="grid cards">
+        <div class="card">
+          <h3>Quick Fix</h3>
+          <div class="price">€49</div>
+          <p>Up to 45 minutes remote support. Perfect for quick wins and simple fixes.</p>
+        </div>
+        <div class="card">
+          <h3>Deep Clean</h3>
+          <div class="price">€79</div>
+          <p>Malware cleanup, tune‑up, and performance boost (60–90 minutes).</p>
+        </div>
+        <div class="card">
+          <h3>Business Care</h3>
+          <div class="price">€149/mo</div>
+          <p>Small business plan: patching, updates, and priority remote support.</p>
+        </div>
+      </div>
+      <p class="foot">Custom projects welcome. All prices include VAT where applicable.</p>
+    </section>
+
+    <section id="book" class="section">
+      <h2>Book Support</h2>
+      <p class="muted">Pick a time that suits you. We’ll send simple instructions to connect securely.</p>
+      <div class="card">
+        <p><strong>Online Booking:</strong> <a href="#" onclick="alert('Replace this with your Calendly or booking link!'); return false;">Add your Calendly link here</a></p>
+        <p class="foot">Don’t have a scheduler yet? Use <a href="https://calendly.com/" target="_blank" rel="noopener">Calendly</a> or <a href="https://cal.com/" target="_blank" rel="noopener">Cal.com</a> and paste the link above.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <div class="grid cards" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+        <div class="card">
+          <h3>Email</h3>
+          <p><a href="mailto:support@fixitdesk.tech">support@fixitdesk.tech</a></p>
+        </div>
+        <div class="card">
+          <h3>Phone</h3>
+          <p><a href="tel:+3530000000">+353 00 000 0000</a> <span class="foot">(edit this)</span></p>
+        </div>
+        <div class="card">
+          <h3>Response Times</h3>
+          <p class="muted">Most issues resolved within 24 hours. Emergency slots available.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="grid" style="grid-template-columns: 1fr auto; align-items: center;">
+        <div class="foot">© <span id="y"></span> FixItDesk — All rights reserved.</div>
+        <div class="foot"><a href="#">Privacy</a> • <a href="#">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
