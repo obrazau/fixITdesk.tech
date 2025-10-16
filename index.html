@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -149,47 +150,97 @@
           <h3>Quick Fix</h3>
           <div class="price">€49</div>
           <p>Up to 45 minutes remote support. Perfect for quick wins and simple fixes.</p>
+          <a class="btn" href="https://buy.stripe.com/test_eVq00i4Qdf8mcmLgF243S00" target="_blank" rel="noopener">Pay Now – €49</a>
         </div>
         <div class="card">
           <h3>Deep Clean</h3>
           <div class="price">€79</div>
           <p>Malware cleanup, tune‑up, and performance boost (60–90 minutes).</p>
+          <a class="btn" href="https://buy.stripe.com/test_eVqeVc3M97FU2Mb4Wk43S01" target="_blank" rel="noopener">Pay Now – €79</a>
         </div>
         <div class="card">
           <h3>Business Care</h3>
           <div class="price">€149/mo</div>
           <p>Small business plan: patching, updates, and priority remote support.</p>
+          <a class="btn" href="https://buy.stripe.com/test_bJefZgbeBbWa0E3ewU43S02" target="_blank" rel="noopener">Start Plan – €149/mo</a>
         </div>
       </div>
       <p class="foot">Custom projects welcome. All prices include VAT where applicable.</p>
     </section>
 
     <section id="book" class="section">
-      <h2>Book Support</h2>
-      <p class="muted">Pick a time that suits you. We’ll send simple instructions to connect securely.</p>
-      <div class="card">
-        <p><strong>Online Booking:</strong> <a href="#" onclick="alert('Replace this with your Calendly or booking link!'); return false;">Add your Calendly link here</a></p>
-        <p class="foot">Don’t have a scheduler yet? Use <a href="https://calendly.com/" target="_blank" rel="noopener">Calendly</a> or <a href="https://cal.com/" target="_blank" rel="noopener">Cal.com</a> and paste the link above.</p>
-      </div>
-    </section>
+  <h2>Request a Support Session</h2>
+  <p class="muted">Tell us when you're available, and we’ll confirm a time that works best for you. Include your preferred date, time, and issue details below.</p>
+  <div class="card">
+    <form id="booking-form" action="https://formspree.io/f/manpavaj" method="POST" style="display:grid; gap:10px;">
+      <input type="text" name="name" placeholder="Your name" required style="padding:10px;border-radius:10px;border:1px solid rgba(148,163,184,.35);background:#0b1020;color:#e2e8f0;">
+      <input type="email" name="email" placeholder="Your email" required style="padding:10px;border-radius:10px;border:1px solid rgba(148,163,184,.35);background:#0b1020;color:#e2e8f0;">
+      <input type="text" name="preferred_time" placeholder="Preferred date and time (e.g. Sat 10 AM)" style="padding:10px;border-radius:10px;border:1px solid rgba(148,163,184,.35);background:#0b1020;color:#e2e8f0;">
+      <textarea name="message" rows="4" placeholder="Briefly describe your issue" required style="padding:10px;border-radius:10px;border:1px solid rgba(148,163,184,.35);background:#0b1020;color:#e2e8f0;"></textarea>
+      <input type="hidden" name="_subject" value="New FixItDesk Booking Request">
+      <input type="hidden" name="_redirect" value="https://fixitdesk.tech/thank-you.html">
+      <input type="text" name="_gotcha" style="display:none">
+      <button class="btn" type="submit">Submit Request</button>
+      <div id="book-form-status" class="foot"></div>
+    </form>
+  </div>
+  <p class="foot" style="margin-top:8px;">We usually reply within a few hours. If it's urgent, you can also call us directly.</p>
+</section>
+
 
     <section id="contact" class="section">
       <h2>Contact</h2>
-      <div class="grid cards" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+      <div class="grid cards" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
         <div class="card">
           <h3>Email</h3>
           <p><a href="mailto:support@fixitdesk.tech">support@fixitdesk.tech</a></p>
+          <p class="foot">We usually reply within a few hours.</p>
         </div>
         <div class="card">
           <h3>Phone</h3>
           <p><a href="tel:+3530000000">+353 00 000 0000</a> <span class="foot">(edit this)</span></p>
         </div>
         <div class="card">
-          <h3>Response Times</h3>
-          <p class="muted">Most issues resolved within 24 hours. Emergency slots available.</p>
+          <h3>Send a Message</h3>
+          <form id="contact-form" action="https://formspree.io/f/manpavaj" method="POST" style="display:grid; gap:10px;">
+            <input type="text" name="name" placeholder="Your name" required style="padding:10px;border-radius:10px;border:1px solid rgba(148,163,184,.35);background:#0b1020;color:var(--text);">
+            <input type="email" name="email" placeholder="Your email" required style="padding:10px;border-radius:10px;border:1px solid rgba(148,163,184,.35);background:#0b1020;color:var(--text);">
+            <textarea name="message" rows="4" placeholder="How can we help?" required style="padding:10px;border-radius:10px;border:1px solid rgba(148,163,184,.35);background:#0b1020;color:var(--text);"></textarea>
+            <!-- Optional: set a custom subject line -->
+            <input type="hidden" name="_subject" value="New message from FixItDesk.tech">
+            <!-- Honeypot field to reduce spam -->
+            <input type="text" name="_gotcha" style="display:none">
+            <button class="btn" type="submit">Send Message</button>
+            <div id="form-status" class="foot"></div>
+          </form>
         </div>
       </div>
     </section>
+
+    <script>
+      // Lightweight AJAX submit for the contact form (so we can show success without leaving the page)
+      const form = document.getElementById('contact-form');
+      if (form) {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const status = document.getElementById('form-status');
+          status.textContent = 'Sending…';
+          const data = new FormData(form);
+          try {
+            const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+            if (res.ok) {
+              status.textContent = 'Thanks! Your message has been sent.';
+              form.reset();
+            } else {
+              const json = await res.json();
+              status.textContent = json.errors ? json.errors.map(e=>e.message).join(', ') : 'Something went wrong. Please email support@fixitdesk.tech.';
+            }
+          } catch (err) {
+            status.textContent = 'Network error. Please try again or email support@fixitdesk.tech.';
+          }
+        });
+      }
+    </script>
   </main>
 
   <footer>
