@@ -149,32 +149,43 @@
           <h3>Quick Fix</h3>
           <div class="price">€49</div>
           <p>Up to 45 minutes remote support. Perfect for quick wins and simple fixes.</p>
-          <a class="btn" href="https://buy.stripe.com/REPLACE_WITH_YOUR_QUICK_FIX_LINK" target="_blank" rel="noopener">Pay Now – €49</a>
+          <a class="btn" href="https://buy.stripe.com/test_eVq00i4Qdf8mcmLgF243S00" target="_blank" rel="noopener">Pay Now – €49</a>
         </div>
         <div class="card">
           <h3>Deep Clean</h3>
           <div class="price">€79</div>
           <p>Malware cleanup, tune‑up, and performance boost (60–90 minutes).</p>
-          <a class="btn" href="https://buy.stripe.com/REPLACE_WITH_YOUR_DEEP_CLEAN_LINK" target="_blank" rel="noopener">Pay Now – €79</a>
+          <a class="btn" href="https://buy.stripe.com/test_eVqeVc3M97FU2Mb4Wk43S01" target="_blank" rel="noopener">Pay Now – €79</a>
         </div>
         <div class="card">
           <h3>Business Care</h3>
           <div class="price">€149/mo</div>
           <p>Small business plan: patching, updates, and priority remote support.</p>
-          <a class="btn" href="https://buy.stripe.com/REPLACE_WITH_YOUR_BUSINESS_CARE_LINK" target="_blank" rel="noopener">Start Plan – €149/mo</a>
+          <a class="btn" href="https://buy.stripe.com/test_bJefZgbeBbWa0E3ewU43S02" target="_blank" rel="noopener">Start Plan – €149/mo</a>
         </div>
       </div>
       <p class="foot">Custom projects welcome. All prices include VAT where applicable.</p>
     </section>
 
     <section id="book" class="section">
-      <h2>Book Support</h2>
-      <p class="muted">Pick a time that suits you. We’ll send simple instructions to connect securely.</p>
-      <div class="card">
-        <p><strong>Online Booking:</strong> <a href="#" onclick="alert('Replace this with your Calendly or booking link!'); return false;">Add your Calendly link here</a></p>
-        <p class="foot">Don’t have a scheduler yet? Use <a href="https://calendly.com/" target="_blank" rel="noopener">Calendly</a> or <a href="https://cal.com/" target="_blank" rel="noopener">Cal.com</a> and paste the link above.</p>
-      </div>
-    </section>
+  <h2>Request a Support Session</h2>
+  <p class="muted">Tell us when you're available, and we’ll confirm a time that works best for you. Include your preferred date, time, and issue details below.</p>
+  <div class="card">
+    <form id="booking-form" action="https://formspree.io/f/manpavaj" method="POST" style="display:grid; gap:10px;">
+      <input type="text" name="name" placeholder="Your name" required style="padding:10px;border-radius:10px;border:1px solid rgba(148,163,184,.35);background:#0b1020;color:#e2e8f0;">
+      <input type="email" name="email" placeholder="Your email" required style="padding:10px;border-radius:10px;border:1px solid rgba(148,163,184,.35);background:#0b1020;color:#e2e8f0;">
+      <input type="text" name="preferred_time" placeholder="Preferred date and time (e.g. Sat 10 AM)" style="padding:10px;border-radius:10px;border:1px solid rgba(148,163,184,.35);background:#0b1020;color:#e2e8f0;">
+      <textarea name="message" rows="4" placeholder="Briefly describe your issue" required style="padding:10px;border-radius:10px;border:1px solid rgba(148,163,184,.35);background:#0b1020;color:#e2e8f0;"></textarea>
+      <input type="hidden" name="_subject" value="New FixItDesk Booking Request">
+      <input type="hidden" name="_redirect" value="https://fixitdesk.tech/thank-you.html">
+      <input type="text" name="_gotcha" style="display:none">
+      <button class="btn" type="submit">Submit Request</button>
+      <div id="book-form-status" class="foot"></div>
+    </form>
+  </div>
+  <p class="foot" style="margin-top:8px;">We usually reply within a few hours. If it's urgent, you can also call us directly.</p>
+</section>
+
 
     <section id="contact" class="section">
       <h2>Contact</h2>
